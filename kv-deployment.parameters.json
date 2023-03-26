@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "tenantId": {
+        "value": "584ead8d-e8ff-4aa6-855d-5f84091150e3"
+      },
+      "objectId": {
+        "value": "61eec5c6-a0f0-42d9-acf8-efaccb2fce5d"
+      },
+      "location": {
+        "value": "northeurope"
+      },
+      "namePrefix": {
+        "value": "ne-demo"
+      },
+      "secretValue": {
+        "value": null
+      }
+    }
+  }
