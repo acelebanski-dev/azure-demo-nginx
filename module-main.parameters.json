@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "kvName": {
+      "value": null
+    },
+    "kvResourceGroupName": {
+      "value": null
+    },
+    "secretName": {
+      "value": null
+    },
+    "location": {
+      "value": "northeurope"
+    },
+    "namePrefix": {
+      "value": "ne-demo"
+    },
+    "allowedIp": {
+      "value": "85.234.250.115/32"
+    },
+    "vmSku": {
+      "value": "Standard_B2s"
+    },
+    "instanceCount": {
+      "value": 2
+    },
+    "adminUsername": {
+      "value": "ac-admin"
+    }
+  }
+}
