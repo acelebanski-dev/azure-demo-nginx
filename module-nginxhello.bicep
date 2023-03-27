@@ -278,6 +278,49 @@ resource appgw 'Microsoft.Network/applicationGateways@2022-09-01' = {
 resource nsg 'Microsoft.Network/networkSecurityGroups@2022-09-01' = {
   name: nsgName
   location: location
+  properties: {
+    securityRules: [
+      {
+        name: 'AllowAppGwHTTPInbound'
+        properties: {
+          protocol: 'TCP'
+          sourcePortRange: '*'
+          destinationPortRange: '80'
+          sourceAddressPrefix: '10.10.1.0/24'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: 100
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'AllowBastionSSHInbound'
+        properties: {
+          protocol: 'TCP'
+          sourcePortRange: '*'
+          destinationPortRange: '22'
+          sourceAddressPrefix: '10.10.2.0/26'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: 110
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'DenyAnyInbound'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '0-65535'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+          access: 'Deny'
+          priority: 4096
+          direction: 'Inbound'
+        }
+      }
+    ]
+  }
 }
 
 resource vmss 'Microsoft.Compute/virtualMachineScaleSets@2022-11-01' = {
